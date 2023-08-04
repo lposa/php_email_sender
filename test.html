@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"> 
+<link href="./styles.css" rel="stylesheet">
+<body>
+
+ 
+
+<!-- Button to open the modal -->
+<button onclick="document.getElementById('id01').style.display='block'">Anmelden</button>
+
+
+<form method="post" action="send_email.php">
+      <input type="text" name="name" placeholder="Your Name">
+      <input type="email" name="email" placeholder="Your Email">
+      <textarea name="message" placeholder="Your Message"></textarea>
+      <button type="submit">Send</button>
+  </form>
+  
+
+<!-- The Modal (contains the Sign Up form) -->
+<div id="id01" class="modal">
+
+ 
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+
+ 
+  
+  <form class="modal-content" method="post" action="send_email.php">
+  <!--  <form class="modal-content" action="/action_page.php">   -->
+      <div class="container">
+            <img src="./Picture1.png" height="100">&nbsp;&nbsp;&nbsp;&nbsp;<img src="./Picture2.png" height="100"><br>
+            <bigtitle>Anmeldeformular:</bigtitle>
+            <br><br>
+            <hr>
+
+      
+           
+            <input type="text" placeholder="Vorname*" name="Vorname" required pattern=".{1,}" title="Please enter at least 3 characters">
+            <input type="text" placeholder="Nachname*" name="Nachname" required pattern=".{1,}" title="Please enter at least 3 characters"/>
+            <br>
+            
+            <label type="text">Geschlecht</label>
+            <select class="dropdown" id="val_equipfc" name="Geschlecht" onChange="checkOption(this)">
+              <option disabled selected value> -- bitte w&auml;hlen -- </option>
+              <option value="Herr">Herr</option>
+              <option value="Frau">Frau</option>
+            </select>
+            <br>
+      
+            <label for="Geb.Datum">Geb. Datum:</label>
+             <input type="date" id="Geb.Datum" name="birthday" value="YYYY-MM-DD" min="1900-01-01" max="2050-12-31"/>
+            <hr>
+            <input type="text" placeholder="Strasse*" name="strasse">
+            <input type="text" placeholder="PLZ*" name="plz">
+            <input type="text" placeholder="Ort*" name="ort"></p>
+            <hr>
+      
+            <input type="text" placeholder="Tel. Mobil*" name="tel_mobil">
+            <input type="text" placeholder="Tel. Gesch&auml;ft" name="tel_geschaeft">
+            <input type="text" placeholder="Tel. Privat*" name="tel_privat">
+            <input type="text" placeholder="E-Mail*" name="E-Mail"></p>
+            <hr>
+      
+            <input type="text" placeholder="Zuweisender Arzt*" name="ZuweisenderArzt">
+            <input type="text" placeholder="Adresse der Arzt" name="AdresseArzt">
+            <input type="text" placeholder="Krankenkasse* (Grundversicherung):" oninput="this.className = ''" name="Krankenkasse"></p>
+          
+          <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+          <script type="text/javascript">
+            $(function () {
+              $("#ddlModels").change(function () {
+                if ($(this).val() == 6) {
+                    $("#txtOther1").removeAttr("disabled");
+                    $("#txtOther1").focus();
+                } else {
+                    $("#txtOther1").attr("disabled", "disabled");
+                }
+             });
+            });
+          </script>
+            <label>Haben Sie eine Zusatzversicherung?:</label>
+            <select id="ddlModels" name="zusatzversicherung_select">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="6">Ja:</option>
+                  <option value="7">Nein</option>
+            </select>
+            <input type="text" placeholder="Zusatzversicherung" id="txtOther1" disabled="disabled" name="zusatzversicherung_input"/>
+          <br>
+      
+          <label type="text">Rechnungskopie per Email versenden?</label>
+          <select class="dropdown" id="val_equipfc" name="email_versenden" onChange="checkOption(this)">
+              <option disabled selected value> -- bitte w&auml;hlen -- </option> 
+              <option value="A">Ja</option>
+            <option value="B">Nein</option>
+          </select>
+          <br>
+          
+          <smalltext>Per 1.1.22 sind alle Dienstleister im Gesundheitswesen gesetzlich verpflichtet, ihren Patienten/innen eine Rechnungskopie zukommen zu lassen.<br>
+          </smalltext><hr>
+      
+              <br>
+              <label>Franchise:</label>
+              <select name="franchise" id="Franchise">
+                <option disabled selected value> -- bitte w&auml;hlen -- </option>
+                <option value="300">300</option>
+                <option value="500">500</option>
+                <option value="1000">1000</option>
+                <option value="1500">1500</option>
+                <option value="2000">2000</option>
+                <option value="2500">2500</option>
+              <select>
+                <div class="checkboxes">
+                  <label><input type="checkbox"> <span>Kind (unter 18 Jahre)</span></label>
+                </div>
+                <br>
+          
+            <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+            <script type="text/javascript">
+              $(function () {
+                $("#ddlModels2").change(function () {
+                  if ($(this).val() == 24) {
+                      $("#txtOther2").removeAttr("disabled");
+                      $("#txtOther2").focus();
+                  } else {
+                      $("#txtOther2").attr("disabled", "disabled");
+                  }
+               });
+              });
+            </script>
+              <label>Bevorzugte Kontaktaufnahme:</label>
+              <select id="ddlModels2" name="Kontaktaufnahme">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>
+                  <option value="21">Festnetz</option>
+                  <option value="22">Mobil</option>
+                  <option value="23">Email</option>
+                  <option value="24">Anders:</option>
+              </select>
+              <input type="text" placeholder="Anders" id="txtOther2" disabled="disabled" name="Kontaktaufnahme_input"/>
+              <hr>
+       
+              <smalltext>Bei Unfall die nachfolgenden Felder zus&auml;tzlich ausf&uuml;llen</smalltext><br>
+          
+                <input type="text" placeholder="Name der Unfallversicherung*" name="Unfallversicherung">
+                <label for="UnfallDatum">Unfall Datum:</label> <input type="date" id="UnfallDatum" name="UnfallDatum" value="JJJJ-MM-TT" min="1900-01-01" max="2018-12-31"/>
+                <input type="text" placeholder="Policen- / Schadennummer:*" name="Schadennummer">
+                <hr>
+      
+                <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+                <script type="text/javascript">
+                  $(function () {
+                    $("#ddlModels3").change(function () {
+                      if ($(this).val() == 14) {
+                          $("#txtOther3").removeAttr("disabled");
+                          $("#txtOther3").focus();
+                      } else {
+                          $("#txtOther3").attr("disabled", "disabled");
+                      }
+                   });
+                  });
+                </script>
+                  <label>Wie haben Sie von uns erfahren?</label>
+                  <select id="ddlModels3" name="erfahren">
+                      <option disabled selected value> -- bitte w&auml;hlen -- </option>
+                      <option value="11">Hausarzt</option>
+                      <option value="12">Empfehlung von Freunden/Bekannte</option>
+                      <option value="13">Internet</option>
+                      <option value="14">Andere Variante (welche):</option>
+                  </select>
+                  <input type="text" placeholder="Andere Variante" id="txtOther3" disabled="disabled" name="erfahren_input"/>
+                <br>
+      
+                <label>Waren Bewertungen im Internet (z. Bsp Google reviews) f&uuml;r Sie wichtig?</label>
+                  <select class="form-text" id="val_equipfc" name="googel_reviews" onChange="checkOption(this)">
+                      <option disabled selected value> -- bitte w&auml;hlen -- </option>
+                      <option value="A">Ja</option>
+                      <option value="B">Nein</option>
+                      <option value="C">Weiss nicht</option>
+                  </select>
+                  <span class="bar"></span><br>
+              
+          <hr>
+                
+                  
+                  <widetext>
+                  <b>Einverst&auml;ndniserkl&auml;rung</b>
+                  <br>
+                  <br>
+                  Mein/e PhysiotherapeutIn wird von mir bevollm&auml;chtigt:
+                  <br>
+                  <br>
+                  &bull;   medizinische Daten, die im Zusammenhang mit meiner Behandlung stehen, mit den zuweisenden und behandelnden
+                  &Auml;rzten sowie Vertrauens&auml;rzten der Kostentr&auml;ger auszutauschen.
+                  <br>
+                  &bull; falls die Rechnung der Behandlung nicht beglichen wird, die erforderlichen pers&ouml;nlichen Behandlungsdaten sowohl an die
+                  rechnungsstellende und die mit einem allf&auml;lligen Inkasso beauftragte Institution, als auch den beauftragten Rechtsanwalt und
+                  die zust&auml;ndigen staatlichen Instanzen weiterzuleiten. 
+                  <br>
+                  &bull; nicht-&ouml;ffentliche Listen mit s&auml;umigen Zahlern anzulegen, welche er/sie mit anderen PhysiotherapeutInnen austauschen
+                  darf.
+                  <br>
+                  <br>
+                  <span style="background-color: #FFFF00"><b>Vereinbarte Behandlungstermine, welche von mir nicht wahrgenommen und nicht mindestens 24 Stunden vor
+                  dem Termin abgesagt wurden, werden mir privat (ohne Anspruch auf R&uuml;ckerstattung durch die
+                  Krankenkassen) in Rechnung gestellt. Alle Behandlungskosten, die von meiner Versicherung/ KK nicht
+                  gezahlt werden, &uuml;bernehme ich vollst&auml;ndig selbst.</span></b>
+                  <br>
+                  <br>
+                  Es ist Schweizer Recht anwendbar.</widetext>
+                  <br>
+                
+            <hr>
+      
+            <bigtitle>Erweiterter Befundfragebogen</bigtitle>
+            <br>
+      
+            <widetext>
+              <b>Um Sie gr&uuml;ndlich und gezielt untersuchen zu k&ouml;nnen, ben&ouml;tigen wir von Ihnen einige Informationen. Falls eine
+              Frage unklar ist, lassen Sie sie einfach aus. Alle Angaben sind <u>freiwillig</u>. Wir schauen sie uns sp&auml;ter gemeinsam
+              an. Vielen Dank!</b></widetext>
+      
+      
+              <input type="text" placeholder="Hobbys" name="Hobbys" >
+              <input type="text" placeholder="Beruf" name="Beruf" >
+              
+              <hr>
+                      
+              <smalltext>Wurde bei Ihnen jemals eine der folgenden Erkrankungen diagnostiziert? Bitte herausw&auml;hlen.</smalltext>
+              <br>
+      
+              <labelshort>Covid</labelshort>
+              <select id="ddlModels" name="covid_select">
+                    <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                    <option value="Covidja">Ja:</option>
+                    <option value="Covidnein">Nein</option>
+              </select>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <labelshort>Long Covid</labelshort>
+            <select id="ddlModels" name="long_covid_select">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="LongCovidja">Ja:</option>
+                  <option value="LongCovidnein">Nein</option>
+            </select>
+            <br>
+            <script type="text/javascript">
+              $(function () {
+                $("#ddlModels4").change(function () {
+                  if ($(this).val() == 21) {
+                      $("#txtOther4").removeAttr("disabled");
+                      $("#txtOther4").focus();
+                  } else {
+                      $("#txtOther4").attr("disabled", "disabled");
+                  }
+               });
+              });
+            </script>
+              <label>Krebs</label>
+              <select id="ddlModels4" name="krebs_select">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>
+                  <option value="21">Ja</option>
+                  <option value="22">Nein</option>
+              </select>
+              <input type="text" placeholder="Wenn ja, welcher Art?" id="txtOther4" disabled="disabled" name="krebs_input" />
+            <br>
+      
+            <script type="text/javascript">
+              $(function () {
+                $("#ddlModels5").change(function () {
+                  if ($(this).val() == 23) {
+                      $("#txtOther5").removeAttr("disabled");
+                      $("#txtOther5").focus();
+                  } else {
+                      $("#txtOther5").attr("disabled", "disabled");
+                  }
+               });
+              });
+            </script>
+              <label>Herzprobleme</label>
+              <select id="ddlModels5" name="herz_select">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>
+                  <option value="23">Ja</option>
+                  <option value="24">Nein</option>
+              </select>
+              <input type="text" placeholder="Wenn ja, welcher Art?" id="txtOther5" disabled="disabled" name="herz_input"/>
+            <br>
+             
+            <labelshort>Hoher Blutdruck</labelshort>
+            <select id="ddlModels" name="hoher_select">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="Blutdruckja">Ja:</option>
+                  <option value="Blutdrucknein">Nein</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <labelshort>Kreislaufprobleme</labelshort>
+            <select id="ddlModels" name="kreis">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="Kreislaufproblemeja">Ja:</option>
+                  <option value="Kreislaufproblemenein">Nein</option>
+            </select>
+            <br>
+      
+            <labelshort>Thrombosen</labelshort>
+            <select id="ddlModels" name="thrombosen">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="Thrombosenja">Ja:</option>
+                  <option value="Thrombosennein">Nein</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <labelshort>Asthma</labelshort>
+            <select id="ddlModels">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="Asthmaja">Ja:</option>
+                  <option value="Asthmanein">Nein</option>
+            </select>
+            <br>
+      
+            <script type="text/javascript">
+              $(function () {
+                $("#ddlModels6").change(function () {
+                  if ($(this).val() == 25) {
+                      $("#txtOther6").removeAttr("disabled");
+                      $("#txtOther6").focus();
+                  } else {
+                      $("#txtOther6").attr("disabled", "disabled");
+                  }
+               });
+              });
+            </script>
+              <label>Nierenerkrankungen</label>
+              <select id="ddlModels6" name="niedergeschlagen_select">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>
+                  <option value="25">Ja</option>
+                  <option value="26">Nein</option>
+              </select>
+              <input type="text" placeholder="Wenn ja, welcher Art?" id="txtOther6" disabled="disabled" name="niedergeschlagen_input"/>
+            <br>
+             
+            <labelshort>Magengeschw&uuml;re</labelshort>
+            <select id="ddlModels" name="Magengeschw_Select">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="Magengeschw&uuml;reja">Ja:</option>
+                  <option value="Magengeschw&uuml;renein">Nein</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <labelshort>Hepatitis</labelshort>
+            <select id="ddlModels" name="Hepatitis">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="Hepatitisja">Ja:</option>
+                  <option value="Hepatitisnein">Nein</option>
+            </select>
+            <br>
+            
+            <labelshort>Abh&auml;ngigkeit von Alkohol,
+              Medikamenten, anderen Substanzen</labelshort>
+            <select id="ddlModels" name="medikament_select">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="Alkoholja">Ja:</option>
+                  <option value="Alkoholnein">Nein</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;      
+            <labelshort>Schilddr&uuml;senprobleme</labelshort>
+            <select id="ddlModels" name="senprobleme_select">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="Schilddr&uuml;senproblemeja">Ja:</option>
+                  <option value="Schilddr&uuml;senproblemenein">Nein</option>
+            </select>
+            <br>
+             
+            <labelshort>Diabetes</labelshort>
+            <select id="ddlModels" name="Diabetes">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="Diabetesja">Ja:</option>
+                  <option value="Diabetesnein">Nein</option>
+            </select>
+            
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <labelshort>Multiple Sklerose</labelshort>
+            <select id="ddlModels" name="Sklerose">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="MSja">Ja:</option>
+                  <option value="MSnein">Nein</option>
+            </select>
+            <br>
+             
+            <labelshort>Schlaganfall</labelshort>
+            <select id="ddlModels" name="Schlaganfall">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="Schlaganfallja">Ja:</option>
+                  <option value="Schlaganfallnein">Nein</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+             
+            <labelshort>Rheumatoide Arthritis</labelshort>
+            <select id="ddlModels" name="Rheumatoide">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="Arthritisja">Ja:</option>
+                  <option value="Arthritislnein">Nein</option>
+            </select>
+            <br>
+             
+            <script type="text/javascript">
+              $(function () {
+                $("#ddlModels7").change(function () {
+                  if ($(this).val() == 27) {
+                      $("#txtOther7").removeAttr("disabled");
+                      $("#txtOther7").focus();
+                  } else {
+                      $("#txtOther7").attr("disabled", "disabled");
+                  }
+               });
+              });
+            </script>
+              <label>Andere entz&uuml;ndliche Gelenkerkrankungen</label>
+              <select id="ddlModels7" name="Gelenkerkrankungen_select">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>
+                  <option value="27">Ja</option>
+                  <option value="28">Nein</option>
+              </select>
+              <input type="text" placeholder="Wenn ja, welcher Art?" id="txtOther7" disabled="disabled" name="Gelenkerkrankungen_input"/>
+            <br>
+      
+            <labelshort>Osteoporose</labelshort>
+            <select id="ddlModels" name="Osteoporose">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="Osteoporoseja">Ja:</option>
+                  <option value="Osteoporosenein">Nein</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+             
+            <labelshort>Depression</labelshort>
+            <select id="ddlModels" name="depression">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="Depressionja">Ja:</option>
+                  <option value="Depressionnein">Nein</option>
+            </select>
+            <br>
+             
+            <labelshort>Schwindel</labelshort>
+            <select id="ddlModels" name="schwindel">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="Schwindelja">Ja:</option>
+                  <option value="Schwindelnein">Nein</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+             
+            <labelshort>Anfallsleiden, Epilepsie</labelshort>
+            <select id="ddlModels" name="Epilepsie">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="Epilepsieja">Ja:</option>
+                  <option value="Epilepsienein">Nein</option>
+            </select>
+            <br>
+             
+            <labelshort>Urininkontinenz</labelshort>
+            <select id="ddlModels" name="Urininkontinenz">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="Urininkontinenzja">Ja:</option>
+                  <option value="Urininkontinenznein">Nein</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+             
+            <labelshort>Tuberkulose</labelshort>
+            <select id="ddlModels" name="Tuberkulose">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="Tuberkuloseja">Ja:</option>
+                  <option value="Tuberkulosenein">Nein</option>
+            </select>
+            <hr>
+      
+            <smalltext>Andere</smalltext>
+            <br>
+            <br>
+             
+            <label>Haben Sie sich im letzten Monat niedergeschlagen, hoffnungslos oder depressiv gef&uuml;hlt?</label>
+            <select id="ddlModels" name="hoffnungslos_oder_depressiv">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="depressivja">Ja:</option>
+                  <option value="depressivnein">Nein</option>
+            </select>
+            <br>
+             
+            <label>Haben Sie sich im letzten Monat f&uuml;r nichts interessiert und an nichts Freude gefunden?</label>
+            <select id="ddlModels" name="freunde_gefunden">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="nichtsinteressiertja">Ja:</option>
+                  <option value="nichtsinteressiertnein">Nein</option>
+            </select>
+            <br>
+            
+            <label>Sind Sie jemals von Ihrem Partner oder einer anderen Ihnen nahestehenden Person bedroht verletzt oder eingesch&uuml;chtert worden?</label>
+            <select id="ddlModels" name="person_bedroht">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="bedrohtja">Ja:</option>
+                  <option value="bedrohtnein">Nein</option>
+            </select>
+            <hr>
+                    
+            
+            <smalltext>Allergien</smalltext><br>
+      
+      
+            <script type="text/javascript">
+              $(function () {
+                $("#ddlModels8").change(function () {
+                  if ($(this).val() == 29) {
+                      $("#txtOther8").removeAttr("disabled");
+                      $("#txtOther8").focus();
+                  } else {
+                      $("#txtOther8").attr("disabled", "disabled");
+                  }
+               });
+              });
+            </script>
+              <label>Sind Sie allergisch gegen Medikamente?</label>
+              <select id="ddlModels8" name="gegen_medikamente_select">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>
+                  <option value="29">Ja</option>
+                  <option value="30">Nein</option>
+              </select>
+              <input type="text" placeholder="Wenn ja, welcher Art?" id="txtOther8" disabled="disabled" name="gegen_medikamente_input"/>
+            <br>
+            <label>Reagieren Sie empfindlich auf Latex?</label>
+            <select id="ddlModels" name="latex_select">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="Latexja">Ja:</option>
+                  <option value="Latexnein">Nein</option>
+            </select>
+            <br>
+            <smalltext>Andere Allergien, die f&uuml;r die Behandlung wichtig sein k&ouml;nnten?</smalltext><br>     
+            <input type="text" placeholder="Andere Allergien" name="AndereAllergien" name="latex_input">
+            <hr>
+      
+            <smalltext>Sind sie bei einer der folgenden Berufsgruppen in Behandlung?</smalltext><br>
+      
+            <labelshort>Hausarzt</labelshort>
+            <select id="ddlModels" name="Hausarzt">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="Hausarztja">Ja:</option>
+                  <option value="Hausarztnein">Nein</option>
+            </select>
+             &nbsp;&nbsp;&nbsp;&nbsp;
+            <labelshort>Psychiater/Psychologe</labelshort>
+            <select id="ddlModels" name="Psychiater">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="Psychiaterja">Ja:</option>
+                  <option value="Psychiaternein">Nein</option>
+            </select>
+            <br>
+      
+            <labelshort>Osteopath</labelshort>
+            <select id="ddlModels" name="osteopath">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="Osteopathja">Ja:</option>
+                  <option value="Osteopathnein">Nein</option>
+            </select>
+             &nbsp;&nbsp;&nbsp;&nbsp;
+            <labelshort>Physiotherapeut</labelshort>
+            <select id="ddlModels" name="Physiotherapeut">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="Physiotherapeutja">Ja:</option>
+                  <option value="Physiotherapeutnein">Nein</option>
+            </select>
+            <br>
+      
+            <labelshort>Zahnarzt</labelshort>
+            <select id="ddlModels" name="Zahnarzt">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="Zahnarztja">Ja:</option>
+                  <option value="Zahnarztnein">Nein</option>
+            </select>
+             &nbsp;&nbsp;&nbsp;&nbsp;
+            <labelshort>Chiropraktiker</labelshort>
+            <select id="ddlModels" name="Chiropraktiker">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="Chiropraktikerja">Ja:</option>
+                  <option value="Chiropraktikernein">Nein</option>
+            </select>
+            <br>
+      
+            <smalltext>Andere:</smalltext><br>
+      
+            <label for="UntersuchungDatum">Datum der letzten Untersuchung:</label> <input type="date" id="Geb.Datum" name="last_exam" value="JJJJ-MM-TT" min="1900-01-01" max="2018-12-31"/>
+            <br>
+            <label>Gehen Sie zu den altersentsprechenden Vorsorgeuntersuchungen?</label>
+            <select id="ddlModels" name="Vorsorgeuntersuchungen">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="Vorsja">Ja:</option>
+                  <option value="Vorsnein">Nein</option>
+              </select>
+              <br> 
+            <script type="text/javascript">
+              $(function () {
+                $("#ddlModels9").change(function () {
+                  if ($(this).val() == 31) {
+                      $("#txtOther9").removeAttr("disabled");
+                      $("#txtOther9").focus();
+                  } else {
+                      $("#txtOther9").attr("disabled", "disabled");
+                  }
+               });
+              });
+            </script>
+              <label>Wurden Sie in den letzten drei Monaten aufgrund von Beschwerden bei einer der oben angegebenen Berufsgruppen behandelt?</label>
+              <select id="ddlModels9" name="letzten_drei_monate">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>
+                  <option value="31">Ja</option>
+                  <option value="32">Nein</option>
+              </select>
+              <input type="text" placeholder="Falls ja, um welche ging es?" id="txtOther9" disabled="disabled" name="beschwerden_grund" />
+              <br>
+              <hr>
+              
+              <smalltext>Bitte nennen Sie alle bei Ihnen durchgef&uuml;hrten Operationen und jeden Krankenhausaufenthalt mit Grund und ungef&auml;hrem Datum:</smalltext><br>
+              
+              <input type="bigtext" maxlength="50" placeholder="1." name="alleoperationen1" >
+              <input type="bigtext" maxlength="50" placeholder="2." name="alleoperationen2" >
+              <input type="bigtext" maxlength="50" placeholder="3." name="alleoperationen3" >
+              <input type="bigtext" maxlength="50" placeholder="4." name="alleoperationen4" >
+              <input type="bigtext" maxlength="50" placeholder="5." name="alleoperationen5" >
+              <input type="bigtext" maxlength="50" placeholder="6." name="alleoperationen6" >
+              <br><br>
+              <smalltext>Bitte nennen Sie alle ernsthaften Verletzungen, f&uuml;r die Sie behandelt werden mussten (zum Beispiel Knochenbr&uuml;che, Bandverletzungen) und das ungef&auml;hre Datum der Verletzung:</smalltext>
+              <br>
+              
+              <input type="felsorolas" placeholder="Verletzung1" name="verletzung1" ><input type="date" id="Verletzung1Datum" name="verletzung1_datum" value="JJJJ-MM-TT" min="1900-01-01" max="2018-12-31"/><br>
+              <input type="felsorolas" placeholder="Verletzung2" name="verletzung2" ><input type="date" id="Verletzung2Datum" name="verletzung2_datum" value="JJJJ-MM-TT" min="1900-01-01" max="2018-12-31"/><br>
+              <input type="felsorolas" placeholder="Verletzung3" name="verletzung3" ><input type="date" id="Verletzung3Datum" name="verletzung3_datum" value="JJJJ-MM-TT" min="1900-01-01" max="2018-12-31"/><br>
+              <input type="felsorolas" placeholder="Verletzung4" name="verletzung4" ><input type="date" id="Verletzung4Datum" name="verletzung4_datum" value="JJJJ-MM-TT" min="1900-01-01" max="2018-12-31"/><br>
+              <input type="felsorolas" placeholder="Verletzung5" name="verletzung5" ><input type="date" id="Verletzung5Datum" name="verletzung5_datum" value="JJJJ-MM-TT" min="1900-01-01" max="2018-12-31"/><br>
+              <input type="felsorolas" placeholder="Verletzung6" name="verletzung6" ><input type="date" id="Verletzung6Datum" name="verletzung6_datum" value="JJJJ-MM-TT" min="1900-01-01" max="2018-12-31"/><br>
+              <hr>
+              
+              <smalltext>Wurde eines Ihrer Familienmitglieder (Eltern, Geschwister) jemals wegen einer der folgenden Erkrankungen behandelt? Bitte herausw&auml;hlen.</smalltext><br>
+              
+              <labelshort>Diabetes</labelshort>
+              <select id="ddlModels" name="fam_diabetes">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="FamDiabetesja">Ja:</option>
+                  <option value="FamDiabetesnein">Nein</option>
+              </select>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              
+              <labelshort>Krebs</labelshort>
+              <select id="ddlModels" name="fam_krebs">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="FamKrebsja">Ja:</option>
+                  <option value="FamKrebsnein">Nein</option>
+              </select>
+              <br>
+              
+              <labelshort>Herzerkrankungen</labelshort>
+              <select id="ddlModels" name="fam_herzerkrankungen">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="FamHerzerkrankungenja">Ja:</option>
+                  <option value="FamHerzerkrankungennein">Nein</option>
+              </select>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              
+              <labelshort>Abh&auml;ngigkeit (Alkohol, Medikamente)</labelshort>
+              <select id="ddlModels" name="fam_abhangigkeit">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="FamAbhangigkeitja">Ja:</option>
+                  <option value="FamAbhangigkeitnein">Nein</option>
+              </select>
+              <br>
+              
+              <labelshort>Hoher Blutdruck</labelshort>
+              <select id="ddlModels" name="fam_hoher_blutdruck">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="FamHoherBlutdruckja">Ja:</option>
+                  <option value="FamHoherBlutdrucknein">Nein</option>
+              </select>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              
+              <labelshort>Depression</labelshort>
+              <select id="ddlModels" name="fam_depression">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="FamDepressionja">Ja:</option>
+                  <option value="FamDepressionnein">Nein</option>
+              </select>
+              <br>
+              
+              <labelshort>Schlaganfall</labelshort>
+              <select id="ddlModels" name="fam_schlaganfall">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="FamSchlaganfallja">Ja:</option>
+                  <option value="FamSchlaganfallnein">Nein</option>
+              </select>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              
+              <labelshort>Nierenerkrankungen</labelshort>
+              <select id="ddlModels" name="fam_nierenerkrankungen">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="FamNierenerkrankungenja">Ja:</option>
+                  <option value="FamNierenerkrankungennein">Nein</option>
+              </select>
+              <br>
+              
+              <labelshort>Entz&uuml;ndliche Gelenkerkrankungen</labelshort>
+              <select id="ddlModels" name="fam_entzundliche_gelenkerkrankungen">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="FamEntzundlicheja">Ja:</option>
+                  <option value="FamEntzundlichenein">Nein</option>
+              </select>
+              <hr>
+              
+              <smalltext>Welche der folgenden Medikamente haben Sie in der vergangen Woche eingenommen?</smalltext><br>
+              
+              <labelshort>Aspirin</labelshort>
+              <select id="ddlModels" name="vergangen_aspirin">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="vergWochAspirinja">Ja:</option>
+                  <option value="vergWochAspirinnein">Nein</option>
+              </select>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              
+              <labelshort>Vitamine, Mineralien (Nahrungserg&auml;nzungen)</labelshort>
+              <select id="ddlModels" name="vergangen_vitamine_mineralien">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="VitamineVerordnet">Verordnet</option>
+                  <option value="VitaminenichtVerordnet">Nicht verordnet</option>
+              </select>
+              <br>
+              
+              <labelshort>Paracetamol</labelshort>
+              <select id="ddlModels" name="vergangen_paracetamol">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="vergWochParacetamolja">Ja</option>
+                  <option value="vergWochParacetamolnein">Nein</option>
+              </select>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              
+              <labelshort>Pflanzliche Mittel</labelshort>
+              <select id="ddlModels" name="vergangen_pflanzliche_mittel">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="PflanzlicheVerordnet">Verordnet</option>
+                  <option value="PflanzlichenichtVerordnet">Nicht verordnet</option>
+              </select>
+              <br>
+              
+              <labelshort>Ibuprofen, Diclofenac etc.</labelshort>
+              <select id="ddlModels" name="vergangen_ibuprofen_diclofenac">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="Ibuprofenja">Ja</option>
+                  <option value="Ibuprofennein">Nein</option>
+              </select>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              
+              <labelshort>Medikamente gegen Magengeschw&uuml;re</labelshort>
+              <select id="ddlModels" name="vergangen_medikamente_magengeschwure">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="vergWochMagengeschw&uuml;reja">Ja</option>
+                  <option value="vergWochMagengeschw&uuml;renein">Nein</option>
+              </select>
+              <br>
+              <label>Andere, nicht verordnete Mittel:</label>&nbsp;<input type="text" placeholder="Andere, nicht verordnete Mittel" name="andere_nicht_verordnete_mittel" ><br>
+              <hr>
+              
+              <smalltext>Bitte listen Sie die Medikamente auf, die Sie auf Verordnung Ihres Arztes derzeit einnehmen (Tabletten, Injektionen, Medikamentenpflaster etc.):</smalltext><br>
+              
+              <input type="bigtext" maxlength="50" placeholder="1." name="medikamente1" >
+              <input type="bigtext" maxlength="50" placeholder="2." name="medikamente2" >
+              <input type="bigtext" maxlength="50" placeholder="3." name="medikamente3" >
+              <input type="bigtext" maxlength="50" placeholder="4." name="medikamente4" >
+              <input type="bigtext" maxlength="50" placeholder="5." name="medikamente5" >
+              <input type="bigtext" maxlength="50" placeholder="6." name="medikamente6" >
+              <br><br><hr>
+              
+              <smalltext>Genussmittel</smalltext><br>
+              <label>Wie viel Kaffee oder andere koffeinhaltige Getr&auml;nke konsumieren Sie pro Tag?</label>&nbsp;<input type="text" placeholder="Koffein pro Tag" name="koffein_pro_tag"/><br>
+              <label>Wie viele Zigaretten rauchen Sie pro Tag?</label>&nbsp;<input type="text" placeholder="Zigaretten pro Tag" name="zigaretten_pro_tag"/><br>
+              <label>Seit wie vielen Jahren?</label>&nbsp;<input type="text" placeholder="Zigaretten Seit wie vielen Jahren?" name="zigaretten_seit_jahren"/><br>
+              <label>Wann haben Sie mit dem Rauchen aufgeh&ouml;rt?</label>&nbsp;<input type="text" placeholder="Wann haben Sie mit dem Rauchen aufgeh&ouml;rt?" name="rauchen_aufgehort"/><br>
+              <label>An wie vielen Tagen pro Woche trinken Sie Alkohol?</label>&nbsp;<input type="text" placeholder="Alkohol pro Woche" name="alkohol_pro_woche"/><br>
+              <label>Wie viele Gl&auml;ser Bier, Wein oder &auml;hnliches trinken Sie an diesen Tagen?</label>&nbsp;<input type="text" placeholder="Alkohol pro Tag" name="alkohol_pro_tag"/><br>
+              <hr>
+              
+              <smalltext>Bitte w&auml;hlen Sie aktuelle Beschwerden heraus, die f&uuml;r Sie neu, ungew&ouml;hnlich oder atypisch sind:</smalltext><br>
+              
+              <labelshort>Gewichtsver&auml;nderung</labelshort>
+              <select id="ddlModels" name="gewichtsveranderung">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="Gewichtsver&auml;nderungja">Ja:</option>
+                  <option value="Gewichtsver&auml;nderungnein">Nein</option>
+              </select>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              
+              <labelshort>Gelenk-, Muskelschwellung</labelshort>
+              <select id="ddlModels" name="gelenk_muskelschwellung">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="Muskelschwellungja">Ja</option>
+                  <option value="Muskelschwellungnein">Nein</option>
+              </select>
+              <br>
+              
+              <labelshort>&uuml;belkeit, Erbrechen</labelshort>
+              <select id="ddlModels" name="ubelkeit_erbrechen">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="Erbrechenja">Ja</option>
+                  <option value="Erbrechennein">Nein</option>
+              </select>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              
+              <labelshort>Unerkl&auml;rliche H&auml;matome (blaue Flecken)</labelshort>
+              <select id="ddlModels" name="unerklarliche_hamato">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="Hamatomeja">Ja</option>
+                  <option value="Hamatomejanein">Nein</option>
+              </select>
+              <br>
+              
+              <labelshort>M&uuml;digkeit</labelshort>
+              <select id="ddlModels" name="mudigkeit">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="Mudigkeitja">Ja:</option>
+                  <option value="Mudigkeitnein">Nein</option>
+              </select>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              
+              <labelshort>Starke Blutung</labelshort>
+              <select id="ddlModels" name="starke_blutung">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="StarkeBlutungja">Ja</option>
+                  <option value="StarkeBlutungnein">Nein</option>
+              </select>
+              <br>
+              
+              <labelshort>Schw&auml;chegef&uuml;hl</labelshort>
+              <select id="ddlModels" name="schwachegefuhl">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="Schwachegefuhlja">Ja:</option>
+                  <option value="Schwachegef&uuml;hlnein">Nein</option>
+              </select>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              
+              <labelshort>Atemnot</labelshort>
+              <select id="ddlModels" name="atemnot">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="Atemnotja">Ja</option>
+                  <option value="Atemnotnein">Nein</option>
+              </select>
+              <br>
+              
+              <labelshort>Fieber, Sch&uuml;ttelfrost, Schwitzen</labelshort>
+              <select id="ddlModels" name="fieber_schuttelfrost_schwitzen">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="Fieberja">Ja</option>
+                  <option value="Fiebernein">Nein</option>
+              </select>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              
+              <labelshort>Hautver&auml;nderungen</labelshort>
+              <select id="ddlModels" name="hautveranderungen">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="Hautver&auml;nderungenja">Ja</option>
+                  <option value="Hautver&auml;nderungennein">Nein</option>
+              </select>
+              <br>
+              
+              <labelshort>Ver&auml;nderungen des Stuhlgangs</labelshort>
+              <select id="ddlModels" name="veranderungen_des_stuhlgangs">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="Ver&auml;nderungenja">Ja</option>
+                  <option value="Ver&auml;nderungennein">Nein</option>
+              </select>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              
+              <labelshort>R&uuml;ckenschmerzen</labelshort>
+              <select id="ddlModels" name="ruckenschmerzen">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="R&uuml;ckenschmerzenja">Ja</option>
+                  <option value="R&uuml;ckenschmerzennein">Nein</option>
+              </select>
+              <br>
+              
+              <labelshort>H&auml;ufiger Harndrang</labelshort>
+              <select id="ddlModels" name="haufiger_harndrang">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="H&auml;ufigerHarndrangja">Ja</option>
+                  <option value="H&auml;ufigerHarndrangnein">Nein</option>
+              </select>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              
+              <labelshort>Schmerzen beim Wasserlassen</labelshort>
+              <select id="ddlModels" name="schmerzen_beim_wasserlassen">
+                  <option disabled selected value> -- bitte w&auml;hlen -- </option>  
+                  <option value="SchmerzenbeimWasserlassenja">Ja</option>
+                  <option value="SchmerzenbeimWasserlassennein">Nein</option>
+              </select>
+              <br>
+              <hr>
+              
+              <smalltext>Zus&auml;tzliche Informationen:</smalltext><br>
+              
+              <label>Beschreiben Sie Ihre aktuellen Beschwerden:</label><br>
+              <textarea id="scales" name="aktuelle_beschwerden" rows="4" cols="50" ></textarea><br>
+              <label>Haben Sie eine der folgenden Diagnosen erhalten?</label><br>
+              
+              <input type="bigtext" maxlength="50" placeholder="1." name="diagnosen1" >
+              <input type="bigtext" maxlength="50" placeholder="2." name="diagnosen2" >
+              <input type="bigtext" maxlength="50" placeholder="3." name="diagnosen3" >
+              <input type="bigtext" maxlength="50" placeholder="4." name="diagnosen4" >
+              <input type="bigtext" maxlength="50" placeholder="5." name="diagnosen5" >
+              <br><br>
+              <label>Haben Sie eine der folgenden Diagnosen erhalten?</label><br>
+              <textarea id="scales" name="diagnosen_text" rows="4" cols="50" ></textarea><br>
+              <label>Gibt es zus&auml;tzliche Informationen, die f&uuml;r Ihre medizinische Beurteilung von Bedeutung sein k&ouml;nnten?</label><br>
+              <textarea id="scales" name="zusatzliche_informationen" rows="4" cols="50" ></textarea>
+              <hr>
+              
+              <input type="checkbox" id="privacy_policy" name="privacy_policy" required>
+              <label for="privacy_policy">Ich habe die Datenschutzrichtlinien gelesen und stimme ihnen zu.</label><br>
+              
+              <input type="submit" value="Formular absenden">
+  </form>
+</div>
