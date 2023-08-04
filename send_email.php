@@ -329,6 +329,8 @@ $zusatzliche_informationen = $_POST['zusatzliche_informationen'];
    
     try {
         $mail->send();
+        header("Location: success.html");
+        exit();
      
     } catch (Exception $e) {
         echo "Oops! Something went wrong. Please try again later. Error: {$mail->ErrorInfo}";
